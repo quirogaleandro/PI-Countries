@@ -1,0 +1,15 @@
+.modo{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 5px 5px;
+  background-color: blue;
+}
+
+.modo2{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 5px 5px;
+  background-color: red;
+}

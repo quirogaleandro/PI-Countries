@@ -1,0 +1,33 @@
+.search{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* azul        negro       gris          white */
+/* #1b65a7    #040615     #f2f4f5      #ffffff */
+/* #4c76e2    #333333     #acacac      #ffffff*/
+.search_input{
+  padding: 6px;
+  border-radius: 10px;
+  background-color: #4c76e2;
+  border: none;
+  color: white;
+}
+::placeholder { color: white; }
+
+.search_button{
+  color:rgb(255, 255, 255);
+  background-color: #4c76e2;
+  border: none;
+  border-radius: 10px;
+  font-family:Arial, Helvetica, sans-serif;
+  width: 60px;
+  height: 100%;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+@media screen and (max-width:1200px){
+  .buscador{
+    margin-top: 400px;
+  }
+}

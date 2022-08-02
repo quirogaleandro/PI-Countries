@@ -1,0 +1,89 @@
+.social{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0;
+  /* transform: translate(-50%,-50%); */
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid red; */
+  margin-top: 380px;
+  margin-left: 620px;
+  z-index: 10;
+} 
+
+.social ul{
+  /* border: 2px solid black; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-items: center;
+  align-items: center;
+}
+
+.social ul li{
+  /* border: 2px solid black; */
+  list-style: none;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin: 5px 0px;
+}
+
+.social ul li a img{
+  /* border: 2px solid blue; */
+  font-size: 30px;
+  line-height: 60px;
+  transition: .3s;
+  margin-top: 12px;
+}
+
+.social menu ul li a img:hover{
+  width: 40px;
+}
+
+.social ul li a{
+  /* border: 2px solid orange; */
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  transition:.6s;
+  box-shadow: 0 5px 4px rgba(0,0,0,0.5);
+}
+
+.social ul li a:hover{
+  transform: translate(0,-10%);
+}
+
+.social ul li:nth-child(1) a:hover{
+  background-color: #E4405F;
+}
+
+.social ul li:nth-child(2) a:hover{
+  background-color: #E4405F;
+}
+.social ul li:nth-child(3) a:hover{
+  background-color: #E4405F;
+} 
+
+@media screen and (max-width:1750px) {
+
+  .social{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0;
+    /* transform: translate(-50%,-50%); */
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid red; */
+    margin-top: 340px;
+    margin-left: -140px;
+    z-index: 10;
+  }
+
+}

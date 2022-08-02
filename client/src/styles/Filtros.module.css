@@ -1,0 +1,232 @@
+.seccion1{
+  /* border: 2px solid black; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  margin: 0px 10px;
+}
+
+.seccionA{
+  display: flex;
+}
+
+.seccionA select{
+  color: white;
+  background-color: #1b65a7 ;
+  border-radius: 10px;
+  padding: 5px 2px;
+  cursor: pointer;
+  border: none;
+}
+
+/* azul        negro       gris          white */
+/* #1b65a7    #040615     #f2f4f5      #ffffff */
+/* #4c76e2    #333333     #acacac      #ffffff*/
+.filtrarpor{
+  text-align: center;
+  margin-top: 80px;
+  font-size: 30px;
+  letter-spacing: 0.3rem;
+  /* color: rgb(255, 255, 255); */
+  color:  #ffffff  ;
+}
+
+.filterContinentes{
+width: 40%;
+margin-right: 10%;
+text-align: center;
+color: rgba(13,30,40,1);
+}
+
+.filterAZ{
+width: 40%;
+  text-align: center;
+  margin-right: 10px;
+  color: rgba(13,30,40,1);
+}
+
+.filterPopulation{
+  margin-top: 10px;
+  width: 40%;
+  text-align: center;
+}
+
+.contenedorAct{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actividades{
+  margin-top: -20px;
+  font-size: 30px;
+  letter-spacing: 0.3rem;
+  /* color: white; */
+  color: #ffffff ;
+}
+
+.filterAct{
+  color: rgba(13,30,40,1);
+  width: 40%;
+  text-align: center;
+  color: white;
+  background-color: #1b65a7 ;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 2px;
+  cursor: pointer;
+}
+
+
+.crearActivityDark{
+  padding: 5px 0px;
+  text-align: center;
+  color: white;
+  background-color: #acacac;
+  width: 40%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.countriesDark{
+  margin-left: 80px;
+  margin-top: 80px;
+  position: relative;
+  border: none;
+  width: 160px;
+  height: 45px;
+  background-color:#acacac;
+  font-size: 1.4rem;
+  color:white;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.countriesDark::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  z-index: -1;
+  border-radius: 7px;
+  transform: translateY();
+}
+
+.countries:active{
+  transform: translateY(5px);
+}
+.countriesDark:active{
+  transform: translateY(5px);
+}
+
+
+/* .countries{
+  border: 1px solid black;
+  margin-left: 100px;
+  margin-top: 80px;
+  width: 40%;
+  border-radius: 10px;
+  cursor: pointer;
+} */
+
+.uls{
+  /* border: solid 2px blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.lis{
+  /* border: solid 2px red; */
+  text-align: center;
+  color:white;
+  list-style: none;
+}
+
+.movil{
+  display: none;
+}
+
+@media screen and (max-width:1500px){
+  .div{
+    /* border: 2px solid red; */
+  }
+}
+
+@media screen and (max-width:1000px){
+  .seccion1{
+    display: none;
+  }
+  .div{
+    display: flex;
+    width: 100%;
+    /* border: 2px solid black; */
+    align-items: center;
+    justify-content: center;
+  }
+  .movil{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+  }
+  .movil ul{
+    width: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    list-style:none;
+  }
+  .movil ul li{
+    margin: 10px;
+    width: 120px;
+    height: 30px;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+  }
+  .movil ul li select{
+    width: 100%;
+  }
+  .movil .crearActivityDark{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:750px){
+  .movil ul{
+    width: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    list-style:none;
+  }
+  .movil ul li{
+    margin: 5px;
+    width: 100px;
+    height: 30px;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width:750px){
+  .movil ul{
+    width: 96%;
+  }
+  .movil .crearActivityDark{
+    width: 70px
+  }
+}
