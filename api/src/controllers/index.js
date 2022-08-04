@@ -7,7 +7,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 
 const getAllCountriesApiDB = async ()=>{
 
-  fetch('https://restcountries.com/v3.1/all')
+  return fetch('https://restcountries.com/v3.1/all')
   .then(response => response.json())
   .then(data => data.map((e)=>{
     return {
@@ -49,10 +49,13 @@ const countriesDB = async(req,res)=>{
   
   const {name} = req.query                       
   
+  console.log(countries)
+
   const allcountries = await Country.findAll()
-  
   if(allcountries.length<1) await Country.bulkCreate(countries) 
-  
+
+
+
   if(name) await CountryActivity(name,res)
   else{
       const getCountry = await Country.findAll({include:{
