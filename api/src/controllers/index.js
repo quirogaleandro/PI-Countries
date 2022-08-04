@@ -1,4 +1,3 @@
-const axios = require ('axios');
 const {Op} =require ('sequelize')
 const {Country,Activity} = require('../db.js')
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args)); 
