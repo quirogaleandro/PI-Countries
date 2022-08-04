@@ -2,7 +2,6 @@ const axios = require ('axios');
 const {Op} =require ('sequelize')
 const {Country,Activity} = require('../db.js')
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args)); 
-//             function que importa node-fetch, al resultado de eso destructura fetch y lo utiliza
 
 
 
@@ -34,7 +33,7 @@ const getAllCountriesApiDB = async ()=>{
         model:Activity,
         attributes:['name','difficult','duration','season'],
         through:{                 
-          attributes:[]                         //si no lo agrego me llega mi tabla intermedia (CountryId,ActivityId,CreatedAt,UpdateAt)
+          attributes:[]                       
         }
       }})
 
@@ -51,9 +50,9 @@ const countriesDB = async(req,res)=>{
   
   const {name} = req.query                       
   
-  const allcountries = await Country.findAll()  //Llama a todos mis paises en mi base de datos
+  const allcountries = await Country.findAll()
   
-  if(!allcountries.length) await Country.bulkCreate(countries) // bulkcreate recibe un array de countries y crea una fila en la tabla de la DB
+  if(!allcountries.length) await Country.bulkCreate(countries) 
   
   if(name) await CountryActivity(name,res)
   else{
@@ -107,7 +106,6 @@ const deleteActivity =async(req,res)=>{
 
 const putActivity =async(req,res)=>{
   const {id} = req.params
-  // const {name,difficult,duration,season} = req.body
   console.log('body',req.body)
   if(id){
     const activity = await Activity.findByPk(id)
@@ -119,18 +117,6 @@ const putActivity =async(req,res)=>{
   }
 }
 
-// const countryDelete = async(req,res)=>{
-//   const {id} = req.params
-
-//   if(id){
-//     const eliminado= Country.findAll({where:{id}})
-//     await Country.destroy({where:{id}})
-//     res.status(204).json(eliminado)
-
-//   }else{
-//     res.status(404).send('No se ha pasado un id')
-//   }
-// }
 
 
 module.exports={
