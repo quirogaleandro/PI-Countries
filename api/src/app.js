@@ -1,6 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const morgan = require('morgan');
@@ -11,7 +11,7 @@ require('./db.js');
 
 const server = express();
 // declaro una instancia de express
-
+server.use(cors())
 server.name = 'API';
 //server.use(middelware) 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
