@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       allowNull:false,
     },
     img:{
-      type : DataTypes.STRING,
+      type : DataTypes.STRING, //Text
       allowNull:false,
     },
     continents:{

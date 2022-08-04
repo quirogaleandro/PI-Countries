@@ -1,4 +1,4 @@
-.seccion1{
+.contenedor_seccion1{
   /* border: 2px solid black; */
   height: 100%;
   display: flex;
@@ -7,11 +7,11 @@
   margin: 0px 10px;
 }
 
-.seccionA{
+.contenedor_seccion1_filtrados{
   display: flex;
 }
 
-.seccionA select{
+.contenedor_seccion1_filtrados select{
   color: white;
   background-color: #1b65a7 ;
   border-radius: 10px;
@@ -23,7 +23,7 @@
 /* azul        negro       gris          white */
 /* #1b65a7    #040615     #f2f4f5      #ffffff */
 /* #4c76e2    #333333     #acacac      #ffffff*/
-.filtrarpor{
+.contenedor_seccion1_filtrar{
   text-align: center;
   margin-top: 80px;
   font-size: 30px;
@@ -52,14 +52,14 @@ width: 40%;
   text-align: center;
 }
 
-.contenedorAct{
+.contenedor_seccion1_Act{
   margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.actividades{
+.act_tittle{
   margin-top: -20px;
   font-size: 30px;
   letter-spacing: 0.3rem;
@@ -80,7 +80,7 @@ width: 40%;
 }
 
 
-.crearActivityDark{
+.act_create{
   padding: 5px 0px;
   text-align: center;
   color: white;
@@ -94,7 +94,7 @@ width: 40%;
 }
 
 
-.countriesDark{
+.contenedor_seccion1_btn{
   margin-left: 80px;
   margin-top: 80px;
   position: relative;
@@ -108,7 +108,7 @@ width: 40%;
   cursor: pointer;
 }
 
-.countriesDark::before{
+.contenedor_seccion1_btn::before{
   content: '';
   position: absolute;
   top: 0;
@@ -124,7 +124,7 @@ width: 40%;
 .countries:active{
   transform: translateY(5px);
 }
-.countriesDark:active{
+.contenedor_seccion1_btn:active{
   transform: translateY(5px);
 }
 
@@ -157,16 +157,16 @@ width: 40%;
 }
 
 @media screen and (max-width:1500px){
-  .div{
+  .contenedor{
     /* border: 2px solid red; */
   }
 }
 
 @media screen and (max-width:1000px){
-  .seccion1{
+  .contenedor_seccion1{
     display: none;
   }
-  .div{
+  .contenedor{
     display: flex;
     width: 100%;
     /* border: 2px solid black; */
@@ -198,7 +198,7 @@ width: 40%;
   .movil ul li select{
     width: 100%;
   }
-  .movil .crearActivityDark{
+  .movil .act_create{
     width: 100%;
   }
 }
@@ -226,7 +226,7 @@ width: 40%;
   .movil ul{
     width: 96%;
   }
-  .movil .crearActivityDark{
+  .movil .act_create{
     width: 70px
   }
 }

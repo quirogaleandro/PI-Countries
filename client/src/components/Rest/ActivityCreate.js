@@ -10,6 +10,7 @@ import img from '../../styles/imagenes/img17.png'
 
 export default function CountryCreate() {
   
+
   const [activo,setActivo] = useState(false)
   const [err,setErr] = useState({})
   const [input,setInput] = useState({
@@ -35,7 +36,6 @@ export default function CountryCreate() {
   },[input])
 
 
-
   //Capturo y valido lo que el usuario escribe
   const handleChange=(e)=>{
     setInput({...input,[e.target.name]:e.target.value})
@@ -44,6 +44,8 @@ export default function CountryCreate() {
 
   //Manejo el estado de country
   const handleSelect= (e) => {
+    console.log(e.target.value)
+  
     let rep = input.countryId.filter((elem)=> elem === e.target.value)
       if(rep.length){
        alert('No se permiten repetidos')
@@ -56,6 +58,9 @@ export default function CountryCreate() {
     setErr(Validate({...input,
       countryId:[...input.countryId,e.target.value]
       }))
+      // setTimeout(()=>{
+      //   e.target.value='DEFAULT'
+      // },2000)
   }
 
   const handleClick = (e)=>{
@@ -69,11 +74,17 @@ export default function CountryCreate() {
   //Elimina los paises seleccionados
   const handleDelete =(e)=>{
     setInput({...input,
-      countryId: input.countryId.filter((country)=> country !== e)}
-      )
-      setErr(Validate({...input,
-        countryId: input.countryId.filter((country)=> country !== e)}))
-      }
+      countryId: input.countryId.filter((country)=> country !== e)
+    })
+    setErr(Validate({...input,
+        countryId: input.countryId.filter((country)=> country !== e)
+      }))
+
+    const select = document.getElementById('#mySelect');
+    const option = document.getElementById('#myId');
+    select.value = option.value;
+  }
+
 
   return (
     <div className={s.conteiner}>
@@ -100,10 +111,10 @@ export default function CountryCreate() {
 
         <div className={s.subconteiner_caja}>
           <label>Elegir país/es</label>
-          <select defaultValue={'DEFAULT'} onChange={handleSelect}>
-            <option name='countryId'  value={'DEFAULT'} disabled >Elegir país</option>
+          <select id={'#mySelect'} className={s.select_country} defaultValue={'DEFAULT'} onChange={handleSelect}>
+            <option id={'#myId'} name='countryId' value={'DEFAULT'} disabled >Elegir país</option>
             {
-              countries?.map((e)=> <option value={e.id} key={e.id}>{e.name}</option>)
+              countries?.map((e)=> <option className={s.option} value={e.id} key={e.id}>{e.name}</option>)
             }
           </select>
           {err.countryId && <p className={s.error}>{err.countryId}</p>}

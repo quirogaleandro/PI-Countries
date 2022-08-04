@@ -3,12 +3,12 @@ import { useEffect } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import s from '../../styles/Filtros.module.css'
-import { filteredByContinents,filteredByAbc,filteredByPopulation,getActivities } from "../../actions";
+import { filteredByContinents,filteredByAbc,filteredByPopulation,getActivities,filteredActivity,getAllCountries } from "../../actions";
 
 
 
-
-function Nav({filtered,filterActivity,handleClick}) {
+function Nav({filtered,setPageNum}) {
+  
   
   const dispatch = useDispatch()
   const activities = useSelector(state => state.activities)
@@ -16,20 +16,34 @@ function Nav({filtered,filterActivity,handleClick}) {
   useEffect(()=>{
     dispatch(getActivities())
   },[dispatch])
-
   
+
   const filterContinentes = (e) => filtered(e,filteredByContinents)
   const filterAZ = (e) => filtered(e,filteredByAbc)
   const filterPopulation = (e) => filtered(e,filteredByPopulation)
-  
+
+  const filterActivity=(e)=> {
+    setPageNum(1)
+    dispatch(filteredActivity(e.target.value))
+  }
+
+  const handleClick=(e)=>{
+    setPageNum(1)
+    e.preventDefault()
+    dispatch(getAllCountries())
+    const select =document.querySelectorAll('select');
+    select.forEach((e)=>{
+      e.value='DEFAULT'
+    })
+  }
 
   return (
-    <div className={s.div}>
-      <div  className={s.seccion1}>
-        <h2 className={s.filtrarpor}>FILTRAR</h2>
+    <div className={s.contenedor}>
+      <div  className={s.contenedor_seccion1}>
+        <h2 className={s.contenedor_seccion1_filtrar}>FILTRAR</h2>
 
-        <div className={s.seccionA}>
-          <select defaultValue={'DEFAULT'} onChange={filterContinentes} className={s.filterContinentes}>
+        <div className={s.contenedor_seccion1_filtrados}>
+          <select  defaultValue={'DEFAULT'} onChange={filterContinentes} className={s.filterContinentes}>
             <option value={'DEFAULT'} disabled >Continentes</option>
             <option value={'All'}>Todos</option>
             <option value={'Africa'}>Africa</option>
@@ -47,7 +61,7 @@ function Nav({filtered,filterActivity,handleClick}) {
           </select>
         </div>
 
-        <div className={s.seccionA}>
+        <div className={s.contenedor_seccion1_filtrados}>
           <select defaultValue={'DEFAULT'} onChange={filterPopulation} className={s.filterPopulation}>
             <option value={'DEFAULT'} disabled >Población</option>
             <option value={'Asc'}>Mayor población</option>
@@ -55,15 +69,15 @@ function Nav({filtered,filterActivity,handleClick}) {
           </select>
         </div> 
 
-        <button onClick={handleClick} className={ s.countriesDark}>Cargar paises</button>
+        <button onClick={handleClick} className={ s.contenedor_seccion1_btn}>Cargar paises</button>
 
-        <div className={s.contenedorAct}>
-          <h2 className={s.actividades}>ACTIVIDADES</h2>
-          <Link to='/activity' className={ s.crearActivityDark}>
+        <div className={s.contenedor_seccion1_Act}>
+          <h2 className={s.act_tittle}>ACTIVIDADES</h2>
+          <Link to='/activity' className={ s.act_create}>
             Crear Actividad
           </Link>
-          <select  defaultValue={'DEFAULT'} onChange={filterActivity} className={s.filterAct}>
-            <option  value={'DEFAULT'} disabled>Seleccionar</option>
+          <select id={"mySelect"} defaultValue={'DEFAULT'} onChange={filterActivity} className={s.filterAct}>
+            <option value={'DEFAULT'} disabled>Seleccionar</option>
               {
                 activities?.map((e)=>{
                 return  <option key={e.id} value={e.name}>{e.name}</option>
@@ -73,7 +87,7 @@ function Nav({filtered,filterActivity,handleClick}) {
         </div>
       </div>
 
-
+                {/* MODO RESPONSIVE */}
 
 
       <div className={s.movil}>
@@ -116,7 +130,7 @@ function Nav({filtered,filterActivity,handleClick}) {
           </select>
           </li>
           <li>
-          <Link to='/activity' className={ s.crearActivityDark}>
+          <Link to='/activity' className={ s.act_create}>
             Crear Actividad
           </Link>
           </li>

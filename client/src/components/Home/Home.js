@@ -13,9 +13,9 @@ import Loading from "./Loading";
 
 function Home (){
 
-  const [pageNum,setPageNum] = useState(1)                        //numero de pagina por la que va
-  const [countriesPag,setCountriesPag] = useState(10)             //cantidad de paises que quiero tener en una pagina
-  const [render,setRender] = useState('')                         // sirve para renderizar la pagina y ordenar los paises
+  const [pageNum,setPageNum] = useState(1)                       
+  const [countriesPag,setCountriesPag] = useState(10)            
+  const [render,setRender] = useState('')                        
   const dispatch = useDispatch()
   const countries = useSelector(state=> state.countries)
 
@@ -23,13 +23,13 @@ function Home (){
     dispatch(getAllCountries())
   },[dispatch])
   
+  const lastCountry = pageNum * countriesPag                      
+  const firstCountry = lastCountry - countriesPag                
+  const currentCountry = countries.slice(firstCountry,lastCountry)
   
-  const lastCountry = pageNum * countriesPag                      //saco el indice del ultimo pais
-  const firstCountry = lastCountry - countriesPag                 //saco el indice del primer pais que quiero en mi pagina
-  const currentCountry = countries.slice(firstCountry,lastCountry)// devuelve un array desde el primer pais hasta el ultimo pais(tendria 10 paises)
   
-  
-  const filterActivity=(e)=> dispatch(filteredActivity(e.target.value))
+
+    
   const paginado = (pageNumber)=> setPageNum(pageNumber)
 
   const filtered=(e,action)=>{
@@ -39,17 +39,13 @@ function Home (){
     dispatch(action(e.target.value))
   }
 
-  const handleClick=(e)=>{
-    e.preventDefault()
-    dispatch(getAllCountries())
-  }
+
 
   return(
     <div className={ s.contenedor}>
         <div className={s.contenedor_A}>
           <Filtros
-            handleClick={handleClick} 
-            filterActivity={filterActivity}
+            setPageNum={setPageNum}
             filtered={filtered}
           />
         </div> 
@@ -57,7 +53,7 @@ function Home (){
       {
         countries.length ? 
         <div className={s.contenedor_B}>
-          <SearchBar/>
+          <SearchBar setPageNum={setPageNum}/>
           <Paginado 
             countries={countries.length} 
             countriesPag={countriesPag} 

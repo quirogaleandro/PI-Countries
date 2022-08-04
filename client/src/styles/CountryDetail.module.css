@@ -201,4 +201,16 @@
     color: rgb(255, 255, 255);
     background-color: rgb(154, 161, 203);
   }
+  .subcontenedor_link{
+    align-self: flex-start;
+    text-decoration: none;
+    color: #1b65a7;
+    background-color:white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition:  0.5s;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+  }
 }

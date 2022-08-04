@@ -1,15 +1,22 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');//es un módulo que podemos instalar vía npm y que nos permite configurar cookies dentro de nuestro servidor.
+
 const bodyParser = require('body-parser');
+// permite a Express leer el cuerpo y luego analizarlo en un objeto Json que podamos entender.
+
 const morgan = require('morgan');
+//permite tener registros de las solicitudes http
+
 const routes = require('./routes/index.js');
+//permite hacer el enrutamiento de nuestras rutas 
 
 require('./db.js');
 
 const server = express();
+// declaro una instancia de express
 
 server.name = 'API';
-
+//server.use(middelware) 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
@@ -33,3 +40,6 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 module.exports = server;
+
+
+//SON TODOS MIDDELWARES

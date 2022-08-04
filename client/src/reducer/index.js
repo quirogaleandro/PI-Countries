@@ -88,7 +88,6 @@ export default function reducer(state,action){
 
     case constantes.FILTERED_ACTIVITY:
 
-
       let filter=[]
       state.allCountries.map((country)=>{
         country.activities.map((activity)=>{
@@ -137,6 +136,14 @@ export default function reducer(state,action){
     default: return initialState
   }
 }   
+
+
+
+
+
+
+
+
 //Si el resultado es negativo, a se ordena antes que b.
 // Si el resultado es positivo, b se ordena antes de a.
 // Si el resultado es 0, nada cambia.

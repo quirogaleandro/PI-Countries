@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getCountry } from '../../actions'
 import s from '../../styles/SearchBar.module.css'
 
-function SearchBar() {
+function SearchBar({setPageNum}) {
 
   const [input,setInput] = useState('')
   const dispatch = useDispatch()
@@ -13,12 +13,11 @@ function SearchBar() {
   }
   
   const handleClick = (e)=>{
+    setPageNum(1)
     e.preventDefault()
     dispatch(getCountry(input))
     setInput('')
   }
-
-
 
   return (
       <form className={s.search} onSubmit={handleClick}>

@@ -136,7 +136,7 @@
   border-right:519px solid transparent;
 }
 
-.style3{
+.conteiner_C{
   position: absolute;
   margin-left: 1100px;
   margin-top: 600px;
@@ -163,7 +163,7 @@
 
 
 @media screen and (max-width:1750px) {
-  .style3{
+  .conteiner_C{
     display: none;
   }
   .conteiner_B{

@@ -65,7 +65,8 @@ background: linear-gradient(180deg, rgba(145,177,255,1) 0%, rgba(255,255,255,1) 
 
 .subconteiner_caja select{
   align-self: center;
-  width: 150px;
+  text-align: center;
+  width: 50%;
   height: 20px;
   margin-left: 20px;
 }
@@ -84,7 +85,9 @@ background: linear-gradient(180deg, rgba(145,177,255,1) 0%, rgba(255,255,255,1) 
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+.subconteiner_caja input::placeholder{
+  color: black;
+}
 .selectCountry{
   /* border: 2px solid red; */
   height: 500px;
@@ -231,5 +234,4 @@ background: linear-gradient(180deg, rgba(145,177,255,1) 0%, rgba(255,255,255,1) 
   .divglobo{
     display: none;
   }
-
 }

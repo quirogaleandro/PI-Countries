@@ -12,7 +12,7 @@
   border: none;
   color: white;
 }
-::placeholder { color: white; }
+input::placeholder { color: white; }
 
 .search_button{
   color:rgb(255, 255, 255);
