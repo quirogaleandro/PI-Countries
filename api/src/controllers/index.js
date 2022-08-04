@@ -51,7 +51,7 @@ const countriesDB = async(req,res)=>{
   
   const allcountries = await Country.findAll()
   
-  if(!allcountries.length) await Country.bulkCreate(countries) 
+  if(allcountries.length<1) await Country.bulkCreate(countries) 
   
   if(name) await CountryActivity(name,res)
   else{
