@@ -7,7 +7,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 
 const getAllCountriesApiDB = async ()=>{
 
-  return fetch('https://restcountries.com/v3.1/all')
+  fetch('https://restcountries.com/v3.1/all')
   .then(response => response.json())
   .then(data => data.map((e)=>{
     return {

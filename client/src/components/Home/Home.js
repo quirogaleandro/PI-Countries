@@ -1,7 +1,7 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import {useDispatch,useSelector} from "react-redux"
-import { getAllCountries,filteredActivity} from "../../actions";
+import { getAllCountries} from "../../actions";
 
 import s from '../../styles/Home.module.css'
 import Paginado from "./Paginado";
@@ -26,8 +26,6 @@ function Home (){
   const lastCountry = pageNum * countriesPag                      
   const firstCountry = lastCountry - countriesPag                
   const currentCountry = countries.slice(firstCountry,lastCountry)
-  
-  
 
     
   const paginado = (pageNumber)=> setPageNum(pageNumber)
@@ -74,35 +72,3 @@ function Home (){
 export default Home;
 
 
-
-
-
-//CORRECCIONES
-//FILTROS
-  // const  filterContinents=(e)=>{
-  //   e.preventDefault()
-  //   setPageNum(1)
-  //   dispatch(filteredByContinents(e.target.value))
-  // }
-
-  // const filterAZ=(e)=>{
-  //   e.preventDefault()
-  //   setRender(e.target.value)
-  //   setPageNum(1)
-  //   dispatch(filteredByAbc(e.target.value))
-  // }
-
-  // const filterPopulation=(e)=>{
-  //   e.preventDefault()
-  //   setPageNum(1)
-  //   setRender(e.target.value)
-  //   dispatch(filteredByPopulation(e.target.value))
-  // }
-// import { getAllCountries,filteredActivity,filteredByContinents,filteredByAbc,filteredByPopulation} from "../../actions";
-{/* <Filtros */}
-// handleClick={handleClick} 
-// filterContinents={filterContinents}
-// filterAZ={filterAZ} 
-// filterPopulation={filterPopulation}
-// filterActivity={filterActivity}
-// />

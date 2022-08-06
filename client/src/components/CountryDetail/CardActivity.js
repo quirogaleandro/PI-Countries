@@ -12,5 +12,4 @@ export default function CardActivityCreate({e}){
         </ul>
     </details>
       )
-
 }
