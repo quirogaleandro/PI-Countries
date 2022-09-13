@@ -9,7 +9,6 @@ import { filteredByContinents,filteredByAbc,filteredByPopulation,getActivities,f
 
 function Nav({filtered,setPageNum}) {
   
-  
   const dispatch = useDispatch()
   const activities = useSelector(state => state.activities)
 

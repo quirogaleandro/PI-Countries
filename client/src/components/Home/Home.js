@@ -37,8 +37,6 @@ function Home (){
     dispatch(action(e.target.value))
   }
 
-
-
   return(
     <div className={ s.contenedor}>
         <div className={s.contenedor_A}>
@@ -47,7 +45,6 @@ function Home (){
             filtered={filtered}
           />
         </div> 
-
       {
         countries.length ? 
         <div className={s.contenedor_B}>
