@@ -61,7 +61,7 @@ La idea general es crear una aplicación en la cual se pueda ver información de
 - [ ] Express
 - [ ] Sequelize - Postgres
 
-#### Imagenes 
+#### Imagenes del proyecto
 
 
 <p align="left">
