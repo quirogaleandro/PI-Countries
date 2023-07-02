@@ -17,11 +17,14 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
+const server = require("./src/app.js");
+require("dotenv").config();
+const { conn } = require("./src/db.js");
+const { getCountries } = require("./src/controllers");
 
 conn.sync({ force: false }).then(() => {
   server.listen(process.env.PORT, () => {
-    console.log('%s escuchando at 3001'); 
+    console.log("%s escuchando at 3001");
+    getCountries();
   });
 });

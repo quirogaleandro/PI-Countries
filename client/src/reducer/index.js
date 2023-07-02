@@ -1,148 +1,130 @@
-import * as constantes from '../actions/constantes'
+import * as constantes from "../actions/constantes";
 
 const initialState = {
-  countries:[],
-  allCountries:[],
-  countryDetail:[],
-  activities:[],
-}
+  countries: [],
+  allCountries: [],
+  countryDetail: [],
+  activities: [],
+};
 
-export default function reducer(state,action){
-
+export default function reducer(state, action) {
   switch (action.type) {
-    
-    case constantes.GET_ALL_COUNTRIES :
+    case constantes.GET_ALL_COUNTRIES:
+      console.log("All countries" + action.payload);
+      return {
+        ...state,
+        countries: action.payload,
+        allCountries: action.payload,
+      };
 
-    return {
-      ...state,
-      countries: action.payload,
-      allCountries: action.payload
-    }
+    case constantes.FILTERED_CONTINENTS:
+      const allContinents = state.allCountries;
+      const filterContinents =
+        action.payload === "All"
+          ? allContinents
+          : allContinents.filter((e) => e.continents === action.payload);
 
-    case constantes.FILTERED_CONTINENTS :
-
-
-    const allContinents = state.allCountries 
-    const filterContinents = action.payload==='All' ? allContinents : allContinents.filter(e=> e.continents ===action.payload)
-
-    return{
-      ...state,
-      countries: filterContinents
-      }
+      return {
+        ...state,
+        countries: filterContinents,
+      };
 
     case constantes.FILTERED_BY_ABC:
+      const sortCountries =
+        action.payload === "Asc"
+          ? state.countries.sort((a, b) => {
+              if (a.name > b.name) {
+                return 1;
+              }
+              if (b.name > a.name) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.countries.sort((a, b) => {
+              if (a.name > b.name) {
+                return -1;
+              }
+              if (b.name > a.name) {
+                return 1;
+              }
+              return 0;
+            });
 
-
-      const sortCountries = action.payload==='Asc' ?
-        state.countries.sort((a,b)=>{
-          if(a.name>b.name){
-            return 1
-          }
-          if(b.name >a.name){
-            return -1
-          }
-          return 0
-        }):
-        state.countries.sort((a,b)=>{
-          if(a.name>b.name){
-            return -1
-          }
-          if(b.name >a.name){
-            return 1
-          }
-          return 0
-        })
-
-      return{
+      return {
         ...state,
-        countries: sortCountries
-      }
+        countries: sortCountries,
+      };
 
     case constantes.FILTERED_BY_POPULATION:
+      const sortPopulation =
+        action.payload === "Asc"
+          ? state.countries.sort((a, b) => {
+              if (a.population > b.population) {
+                return -1;
+              }
+              if (b.population > a.name) {
+                return 1;
+              }
+              return 0;
+            })
+          : state.countries.sort((a, b) => {
+              if (a.population > b.population) {
+                return 1;
+              }
+              if (b.population > a.population) {
+                return -1;
+              }
+              return 0;
+            });
 
-
-        const sortPopulation = action.payload==='Asc' ?
-        state.countries.sort((a,b)=>{
-          if(a.population>b.population){
-            return -1
-          }
-          if(b.population >a.name){
-            return 1
-          }
-          return 0
-        })
-        :state.countries.sort((a,b)=>{
-          if(a.population>b.population){
-            return 1
-          }
-          if(b.population >a.population){
-            return -1
-          }
-          return 0
-        })
-
-      return{
+      return {
         ...state,
-        countries: sortPopulation
-      }
+        countries: sortPopulation,
+      };
 
     case constantes.FILTERED_ACTIVITY:
-
-      let filter=[]
-      state.allCountries.map((country)=>{
-        country.activities.map((activity)=>{
-          if(activity.name ===action.payload){
-            return filter.push(country)
+      let filter = [];
+      state.allCountries.map((country) => {
+        country.activities.map((activity) => {
+          if (activity.name === action.payload) {
+            return filter.push(country);
           }
-        })
-      })
+        });
+      });
 
-      return{
+      return {
         ...state,
-        countries: filter
-      }
+        countries: filter,
+      };
 
     case constantes.GET_COUNTRY:
-      
-      return{
+      return {
         ...state,
-        countries: Array.isArray(action.payload) ? action.payload : 'No existe' 
-      }
+        countries: Array.isArray(action.payload) ? action.payload : "No existe",
+      };
 
     case constantes.GET_COUNTRY_DETAIL:
-
-
-      return{
+      return {
         ...state,
-        countryDetail: action.payload
-      }
+        countryDetail: action.payload,
+      };
 
-
-    case constantes.CLEAN : 
-
-
-      return{
+    case constantes.CLEAN:
+      return {
         ...state,
-        countryDetail:null
-      }
-
+        countryDetail: null,
+      };
 
     case constantes.GET_ACTIVITIES:
-
-        return{
-          ...state,
-          activities: action.payload
-        }
-    default: return initialState
+      return {
+        ...state,
+        activities: action.payload,
+      };
+    default:
+      return initialState;
   }
-}   
-
-
-
-
-
-
-
+}
 
 //Si el resultado es negativo, a se ordena antes que b.
 // Si el resultado es positivo, b se ordena antes de a.

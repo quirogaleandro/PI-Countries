@@ -1,16 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux'
-import store from './store/index.js'
-import { BrowserRouter as Router } from 'react-router-dom';
-import axios from 'axios';
-import dotenv from 'dotenv';
-dotenv.config()
-
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001"
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import store from "./store/index.js";
+import { BrowserRouter as Router } from "react-router-dom";
+import dotenv from "dotenv";
+dotenv.config();
 
 ReactDOM.render(
   <Provider store={store}>
@@ -20,7 +17,7 @@ ReactDOM.render(
       </React.StrictMode>
     </Router>
   </Provider>,
-    document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
